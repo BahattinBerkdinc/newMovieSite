@@ -1,0 +1,43 @@
+
+.header{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.124);
+    color: white;
+    box-shadow: 0 25px  30px rgba(255, 255, 255, 0.072);
+
+    .logo{
+        font-size: 2rem;
+        position: relative;    
+
+        span:first-child{
+            font-weight: 200;
+            font-size: 1.5rem;
+            z-index: 2;
+        }
+
+        >span:last-child{
+            position: absolute;
+            top: -70px;
+            left: 15%;
+            font-size: 8rem;
+            font-weight: bold;
+            z-index: 1;
+            opacity: 0.1;
+        }
+    }
+
+    nav{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .nav-link{
+            font-weight: 300;
+            letter-spacing: 1.2px;
+        }
+    }
+}
