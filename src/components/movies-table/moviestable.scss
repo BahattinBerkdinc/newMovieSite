@@ -1,0 +1,26 @@
+.pagination-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 1rem;
+    list-style: none;
+
+    li{
+        cursor: pointer;
+    }
+
+    a{
+        border: 1px solid goldenrod;
+        text-decoration: none;
+        padding: .5rem 1rem;
+        border-radius: 10px;
+        transition: all 500ms ease;
+        color: goldenrod!important;
+
+        &:hover{
+            background-color: goldenrod;
+            color: white!important;
+        }
+    }
+}

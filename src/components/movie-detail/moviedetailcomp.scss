@@ -20,6 +20,10 @@
         box-shadow: 0 8px 20px rgba(255, 255, 255, 0.196);
         border-radius: 15px;
 
+        @media (max-width:768px){
+            flex-direction: column;
+        }
+
         h2{
             color: white;
             font-size: 1.1rem;
@@ -57,7 +61,6 @@
             background: linear-gradient(135deg, Orgba(255, 255, 255, 0.1), Oreba(255, 255,255,0));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            
 
             p{
                 font-weight: bold;
@@ -75,6 +78,41 @@
             .info-bottom{
                 h2{
                     color: goldenrod;
+                }
+            }
+
+            .cast-profile{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 1rem;
+                
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .profile-pic-box{
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+            }
+
+            .play-trailer{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                cursor: pointer;
+
+                svg{
+                    font-size: 1.2rem;
                 }
             }
         }
