@@ -2,9 +2,11 @@ import React from 'react';
 import './moviecard.scss';
 import { AiOutlineStar } from 'react-icons/ai';
 import { NavLink } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ movie }) => {
-  const rating = Math.floor(movie.vote_average); // Puanı 10'dan aşağıya yuvarla
+
+  const rating = Math.floor(movie.vote_average); 
 
   return (
     <div className='movie-card'>
@@ -21,7 +23,7 @@ const MovieCard = ({ movie }) => {
           }
         <span>({movie.vote_average})</span>
         </div>
-        <NavLink className='show-more-btn' to={`/movie/${movie.id}`}>Read More</NavLink>
+        <NavLink as={Link}  className='show-more-btn' to={`/movie/${movie.id}`}>See More</NavLink>
       </div>
     </div>
   );

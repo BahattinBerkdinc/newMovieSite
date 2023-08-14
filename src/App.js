@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Header from './components/header/Header';
 import MoviesTable from './components/movies-table/MoviesTable';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MovieDetailPage from './pages/movie-detail-page/MovieDetailPage';
 
 function App() {
 
@@ -33,7 +35,12 @@ function App() {
     <StoreContext.Provider value={movieData}>
       <div className="App">
         <Header/>
-        <MoviesTable/>
+        <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<MoviesTable/>}/>
+          <Route path='/movie/:id' element={<MovieDetailPage/>}/>
+        </Routes>
+        </BrowserRouter>
       </div>
     </StoreContext.Provider>
   );
