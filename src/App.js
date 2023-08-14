@@ -2,7 +2,7 @@ import StoreContext from './store';
 import './App.scss';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Header from './components/header/Header';
+
 import MoviesTable from './components/movies-table/MoviesTable';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MovieDetailPage from './pages/movie-detail-page/MovieDetailPage';
@@ -20,7 +20,6 @@ function App() {
           total_results: 100,
         }
       });
-      console.log(resp.data);
       setMovieData(resp.data.results);
     } catch (error) {
       console.log(error); 
@@ -34,7 +33,7 @@ function App() {
   return (
     <StoreContext.Provider value={movieData}>
       <div className="App">
-        <Header/>
+        {/* <Header/> */}
         <BrowserRouter>
         <Routes>
           <Route path='/' element={<MoviesTable/>}/>
