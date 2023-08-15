@@ -49,7 +49,7 @@ const MovieDetail = ({onGenresChange}) => {
       }, [id]);
 
       if (!selectedMovie) {
-        return null; // Film yüklenene kadar bileşen render edilmez
+        return null; 
       }
     
 

@@ -9,6 +9,7 @@ import PopularMovies from './pages/popular-movies/PopularMovies';
 
 function App() {
   const [movieData, setMovieData] = useState([]);
+  const [loading,setLoading] = useState(false);
 
   const loadData = async () => {
     try {
@@ -30,8 +31,12 @@ function App() {
       }
 
       setMovieData(allMovies);
+      setLoading(true);
     } catch (error) {
       console.log(error);
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -45,8 +50,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path='/popular' element={<PopularMovies/>} />
-            <Route path="/movie/:id" element={<MovieDetailPage />} />
+            <Route path='/popular' element={<PopularMovies loading={loading}/>} />
+            <Route path="/movie/:id" element={<MovieDetailPage  />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -6,12 +6,17 @@ import { Col, Container, Row } from 'react-bootstrap';
 import MovieCard from '../movie-card/MovieCard';
 import PageTitle from '../pageTitle/PageTitle';
 import ReactPaginate from 'react-paginate';
+import Loading from '../loading/Loading';
+import Spacer from '../spacer/Spacer';
 
 // ...
 
-const MoviesTable = () => {
+const MoviesTable = ({loading}) => {
     const store = useContext(StoreContext);
     console.log(store);
+
+    console.log(loading);
+   
   
     const itemsPerPage = 20;
     const pageCount = Math.ceil(store.length / itemsPerPage);
@@ -31,12 +36,17 @@ const MoviesTable = () => {
       <Container>
         <PageTitle title="POPULAR MOVIES" />
         <Row className='my-5'>
-          {selectedMovies.map((movie, index) => (
-            <Col className='mt-5' sm={12} md={6} lg={4} key={index}>
-              <MovieCard movie={movie} />
-            </Col>
-          ))}
+          {
+            loading ? <Loading/> : (
+              selectedMovies.map((movie, index) => (
+                <Col className='mt-5' sm={12} md={6} lg={4} key={index}>
+                  <MovieCard movie={movie} />
+                </Col>
+              ))
+            )
+          }
         </Row>
+        <Spacer height={"100px"}/>
         <ReactPaginate className='pagination-bar'
           previousLabel={'<<'}
           nextLabel={'>>'}

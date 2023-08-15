@@ -2,11 +2,11 @@ import React from 'react'
 import MoviesTable from '../../components/movies-table/MoviesTable'
 import Header from '../../components/header/Header'
 
-const PopularMovies = () => {
+const PopularMovies = ({loading}) => {
   return (
     <div>
     <Header/>
-    <MoviesTable/>
+    <MoviesTable loading={loading}/>
     </div>
   )
 }
