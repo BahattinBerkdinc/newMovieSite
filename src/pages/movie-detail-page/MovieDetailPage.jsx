@@ -15,6 +15,8 @@ const MovieDetailPage = () => {
         setGenres(genreIds);
     };
 
+   
+
   
  
 

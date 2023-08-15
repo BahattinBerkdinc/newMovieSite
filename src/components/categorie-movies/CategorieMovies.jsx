@@ -20,7 +20,7 @@ const CategorieMovies = ({categorieId,categorieTitle}) => {
         <Row>
             {
                 categorieMovies.splice(0,6).map((movie, index) => (
-                    <Col sm={6} md={2} key={index}>
+                    <Col className='my-3' sm={6} md={2} key={index}>
                     <Link to={`/movie/${movie.id}`}>
                     <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" />
                     </Link>

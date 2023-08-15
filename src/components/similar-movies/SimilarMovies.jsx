@@ -8,15 +8,11 @@ import ReactPaginate from 'react-paginate'
 const SimilarMovies = ({genres}) => {
 
     const store = useContext(StoreContext)
-
-    console.log("store", store);
-    console.log("genres", genres);
+   
 
     const similarMovies = store.filter((movie) =>
     movie.genre_ids.some((genreId) => genres.includes(genreId))
   );
-
-    console.log("similarMovies", similarMovies);
 
     const itemsPerPage = 9;
     const pageCount = Math.ceil(similarMovies.length / itemsPerPage);

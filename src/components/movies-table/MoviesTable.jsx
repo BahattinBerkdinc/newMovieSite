@@ -13,9 +13,9 @@ import Spacer from '../spacer/Spacer';
 
 const MoviesTable = ({loading}) => {
     const store = useContext(StoreContext);
-    console.log(store);
+   
 
-    console.log(loading);
+   
    
   
     const itemsPerPage = 20;

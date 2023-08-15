@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MovieDetailPage from './pages/movie-detail-page/MovieDetailPage';
 import HomePage from './pages/home-page/HomePage';
 import PopularMovies from './pages/popular-movies/PopularMovies';
+import CastingPage from './pages/casting-page/CastingPage';
 
 function App() {
   const [movieData, setMovieData] = useState([]);
@@ -52,6 +53,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path='/popular' element={<PopularMovies loading={loading}/>} />
             <Route path="/movie/:id" element={<MovieDetailPage  />} />
+            <Route path='/cast/:castId' element={<CastingPage  />} />
           </Routes>
         </BrowserRouter>
       </div>

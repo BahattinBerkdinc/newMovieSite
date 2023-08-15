@@ -2,7 +2,7 @@
 .header{
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 3rem ;
     padding: 3rem;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.824);
@@ -34,11 +34,17 @@
     nav{
         display: flex;
         align-items: center;
+        flex: 1;
         gap: 1rem;
 
         .nav-link{
             font-weight: 300;
             letter-spacing: 1.2px;
+
+            &:last-child{
+                color: goldenrod;
+                margin-left: auto;
+            }
         }
     }
 

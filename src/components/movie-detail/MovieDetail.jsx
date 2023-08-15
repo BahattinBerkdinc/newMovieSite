@@ -4,7 +4,7 @@ import StoreContext from '../../store';
 import { Col, Container, Row } from 'react-bootstrap';
 import { AiOutlineStar } from 'react-icons/ai';
 import {CgPlayTrackNextO} from 'react-icons/cg'
-import { useParams } from 'react-router-dom';
+import { Link, NavLink, useParams } from 'react-router-dom';
 import "./moviedetailcomp.scss"
 import axios from 'axios';
 import Header from '../header/Header';
@@ -52,22 +52,30 @@ const MovieDetail = ({onGenresChange}) => {
         return null; 
       }
     
-
+      
    
 
     const genre = movieDetail.genres ? movieDetail.genres.map((genre) => genre.name) : [];
     // const genreIds = movieDetail.genres ? movieDetail.genres.map((genre) => genre.id) : [];
-     const cast = movieDetail?.credits?.cast ? movieDetail.credits.cast.map((cast) => cast.name)  : [];
+    //  const cast = movieDetail?.credits?.cast ? movieDetail.credits.cast.map((cast) => cast.name)  : [];
+
+    //  const castId = movieDetail?.credits?.cast ? movieDetail.credits.cast.splice(0,5).map((cast) => cast.id)  : [];
+    //  console.log(castId);
+
+    const castList = movieDetail?.credits?.cast || [];
+    const castId = castList.slice(0, 5).map((cast) => cast.id);
+    console.log(castId + "castId-movieDetail");
+
      const castProfilePic = movieDetail?.credits?.cast ? movieDetail.credits.cast.map((cast) => cast.profile_path)  : [];
+
      const director = movieDetail?.credits?.crew ? movieDetail.credits.crew.map((crew) =>{
-        if(crew.known_for_department === 'Directing'){
-          return crew.name
+       if(crew.known_for_department === 'Directing'){
+         return crew.name
         }else{
           return null
         }
-     })  : [];
-
-    
+      })  : [];
+      
     
 
   return (
@@ -106,7 +114,15 @@ const MovieDetail = ({onGenresChange}) => {
                 </div>
               </div>
               <div className="cast">
-                <p>Cast: <span>{cast.splice(0, 5).join(', ') }</span> </p>
+              <p>
+            Cast: {castList.slice(0, 5).map((cast, index) => (
+              <NavLink key={index} as={Link} to={`/cast/${id}`}>
+             {cast.name}
+               {index < 4 ? ', ' : ''}
+              </NavLink>
+               ))}
+                </p>
+
                 <div className="cast-profile">{castProfilePic.splice(0, 5).map((pic, index) => (
                   <div className='profile-pic-box' key={index}>
                     <img key={index} src={`https://image.tmdb.org/t/p/original${pic}`} alt={pic} />

@@ -4,14 +4,28 @@
     padding: 0 3rem;
     display: flex;
     flex-direction: column;
-    >div {
+
+    .row{
       display: flex;
-      flex-wrap: wrap;
+        flex-wrap: wrap;
+
+        .col-sm-6{
+          @media (max-width:768px){
+            
+            width: 50%;
+          }
+        }
+    }
+    
 
       img{
         width: 100%;
         object-fit: cover;
         cursor: pointer;
+
+        @media (max-width:768px){
+          width: 100%;
+        }
       }
-    }
+    
   }

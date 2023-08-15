@@ -1,10 +1,22 @@
 
 
 .home-movies{
+
+    @media (max-width:768px){
+       padding: 0 1rem;
+    }
+
+    >.row{
+        @media (max-width:768px){
+            gap: 2rem;
+        }
+    }
+
+
     img{
         cursor: pointer;
         &:hover{
-            transform: scale(1.1);
+            scale: 1.1;
             transition: all 500ms ease;
         }
     }
