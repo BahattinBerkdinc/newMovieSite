@@ -73,6 +73,10 @@
             .info-top{
                 display: flex;
                 justify-content: space-between;
+
+                @media (max-width:768px){
+                    flex-direction: column;
+                }
             }
 
             .info-bottom{
@@ -83,14 +87,18 @@
 
             .cast-profile{
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: flex-start;
-                flex-wrap: wrap;
-                gap: 1rem;
                 
                 img{
                     width: 100%;
                     object-fit: cover;
+                }
+
+                .cast-profile-top{
+                    display: flex;
+                    flex-direction: column;
+                    gap: .7rem;
                 }
 
                 .profile-pic-box{
@@ -102,6 +110,22 @@
                     align-items: center;
                     justify-content: center;
                     cursor: pointer;
+                }
+
+                .cast-names{
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1rem;
+                    font-weight: 200;
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 4.4rem;
+                    margin-left: 1rem;
+
+                    &:hover{
+                        color: goldenrod;
+                    }
+
                 }
             }
 

@@ -1,15 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import StoreContext from '../../store';
 import { Col, Container, Row } from 'react-bootstrap';
-import { AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineRollback, AiOutlineStar } from 'react-icons/ai';
 import { CgPlayTrackNextO } from 'react-icons/cg';
-import { Link, NavLink, useParams } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useParams } from 'react-router-dom';
 import "./moviedetailcomp.scss"
 import axios from 'axios';
-import Header from '../header/Header';
 
 const MovieDetail = ({ onGenresChange }) => {
-
+    const navigate = useNavigate();
     const store = useContext(StoreContext);
     const { id } = useParams();
 
@@ -59,7 +58,7 @@ const MovieDetail = ({ onGenresChange }) => {
 
     return (
         <div className="movie-detail" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${selectedMovie.poster_path})` }}>
-            <Header />
+            
             <Container>
                 <div className="movie-detail-top">
                     <h2>{selectedMovie.title} <span>({selectedMovie.release_date})</span></h2>
@@ -79,33 +78,41 @@ const MovieDetail = ({ onGenresChange }) => {
                         <Col sm={12} md={8} >
                             <div className="movie-info">
                                 <div className="info-top">
+                                    <Col md={9}>
                                     <div className="info-top-left">
+                                    <p className="back" onClick={() => navigate(-1)}>Back <AiOutlineRollback/></p>
                                         <p>Release : <span>{selectedMovie.release_date}</span></p>
                                         <p>Directing : <span>{director}</span></p>
                                         <p>Genres : <span>{genre.slice(0, 3).join(', ')}</span></p>
                                     </div>
+                                    </Col>
+                                    <Col  md={3}>
                                     <div className="info-top-right">
                                         <p>Runtime : <span>{movieDetail.runtime}</span> minute</p>
                                         <span className='play-trailer'><CgPlayTrackNextO />Play Trailer </span>
                                     </div>
+                                    </Col>
                                 </div>
-                                <div className="cast">
-                                    <p>
-                                        Cast: {castList.slice(0, 5).map((cast, index) => (
-                                            <NavLink key={index} as={Link} to={`/cast/${cast.id}`}>
-                                                {cast.name}
-                                                {index < 4 ? ', ' : ''}
-                                            </NavLink>
-                                        ))}
-                                    </p>
+                               
                                     <div className="cast-profile">
+                                        <div className="cast-profile-top">
                                         {castProfilePic.slice(0, 5).map((pic, index) => (
                                             <div className='profile-pic-box' key={index}>
                                                 <img key={index} src={`https://image.tmdb.org/t/p/original${pic}`} alt={pic} />
                                             </div>
+                                            
                                         ))}
+                                        </div>
+                                         <p>
+                                       {castList.slice(0, 5).map((cast, index) => (
+                                            <NavLink className="cast-names" key={index} as={Link} to={`/cast/${cast.id}`}>
+                                                <span>{cast.name}</span>
+                                                {/* {index < 4 ? '  ' : ''} */}
+                                            </NavLink>
+                                        ))}
+                                    </p>
                                     </div>
-                                </div>
+                               
                                 <div className="info-bottom">
                                     <h2>{selectedMovie.title}</h2>
                                     <p>{selectedMovie.overview}</p>
