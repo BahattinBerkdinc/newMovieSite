@@ -1,0 +1,121 @@
+
+
+.movie-card{
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    
+    
+    img{
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .movie-title{
+        color: goldenrod;
+        text-align: center;
+        position: absolute;
+        left: 5px;
+        right: 5px;
+        bottom: 5px;
+        background-color: rgba(0, 0, 0, 0.668);
+        padding: .5rem 1rem;
+        border-radius: 10px;
+    }
+
+    .info-layout{
+        position: absolute;
+        inset: 0;
+        background-color: rgba(40, 37, 37, 0.556);
+        transform: translateX(100%);
+        transition: .5s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+        padding-right: 20%;
+        gap: .4rem;
+        overflow: hidden;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+
+
+        background: linear-gradient(135deg, Orgba(255, 255, 255, 0.1), Oreba(255, 255,255,0));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        
+
+        .movie-title-layout{
+            color: goldenrod;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-shadow: 0 5px 20px rgba(255, 255, 255, 0.5);
+
+            @media (max-width: 1200px){
+                font-size: .8rem;
+            }
+            @media (max-width: 768px){
+                font-size: 1.2rem;
+            }
+        }
+
+        >p{
+            color: white;
+            font-weight: 400;
+            font-size: .8rem;
+        }
+
+        .rating{
+            display: flex;
+            align-items: center;
+            >svg{
+                font-size: 1rem;
+            }
+            >span{
+                color: white;
+                margin-left: 1rem;
+            }
+        }
+
+        .empty{
+            color: rgb(241, 236, 236);
+        }
+
+        .filled{
+            color: goldenrod;
+        }
+
+        .show-more-btn{
+            color: white;
+            text-decoration: none;
+            background-color: goldenrod;
+            padding: .2rem;
+            margin-top: .5rem;
+            border-radius: 7px;
+            width: 50%;
+            text-align: center;
+            font-size: .8rem;
+            font-weight: 400;
+
+            &:hover{
+                background-color: rgba(218, 165, 32, 0.464);
+            }
+        }
+    }
+
+    &:hover{
+        .info-layout{
+            transform: translateX(20%);
+            
+        }
+
+        .movie-title{
+            display: none;
+        }
+    }
+}

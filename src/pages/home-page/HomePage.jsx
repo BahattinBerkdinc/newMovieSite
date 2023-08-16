@@ -4,6 +4,7 @@ import HomeMovies from '../../components/home-movies/HomeMovies'
 import PageTitle from '../../components/pageTitle/PageTitle'
 import Spacer from '../../components/spacer/Spacer'
 import CategorieMovies from '../../components/categorie-movies/CategorieMovies'
+import SearchedMovies from '../../components/searchedMovies/SearchedMovies'
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
     <Header/>
     <Spacer height={"50px"} />
     <PageTitle title={"Unleash Your Cinematic Adventure: Dive into a World of Movies."}/>
+    <SearchedMovies/>
     <Spacer height={"100px"} />
     <HomeMovies/>
     <Spacer height={"100px"} />
