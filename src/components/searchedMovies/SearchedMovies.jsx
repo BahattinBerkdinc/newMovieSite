@@ -32,7 +32,7 @@ const SearchedMovies = () => {
                                         <span className='movie-title-layout'>{movie.title}</span>
                                         <p>{movie.overview.split(' ').slice(0, 30).join(' ')}...</p>
         
-                                     <NavLink as={Link}  className='show-more-btn' to={`/movie/${movie.id}`}                            >See More</NavLink>
+                                     <NavLink as={Link}  className='show-more-btn' to={`/movie/${movie.id}`} >See More</NavLink>
                                     </div>
                                     <span>
                                         {Array(10).fill().map((_, i) => (
