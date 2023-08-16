@@ -1,6 +1,7 @@
 
 
 .home-movies{
+    padding: 0 2rem;
 
     @media (max-width:768px){
        padding: 0 1rem;
@@ -16,7 +17,7 @@
     img{
         cursor: pointer;
         &:hover{
-            scale: 1.1;
+            scale: .9;
             transition: all 500ms ease;
         }
     }
